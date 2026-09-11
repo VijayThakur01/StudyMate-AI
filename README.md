@@ -1,8 +1,12 @@
 # 🤖 StudyMate AI
 
-StudyMate AI is an AI-powered study assistant that allows students to upload their study material in PDF format and ask questions based on the uploaded content.
+## 📌 Project Overview
 
-The application extracts text from the PDF, divides it into smaller chunks, creates embeddings for those chunks, retrieves the most relevant information for a question, and uses Google Gemini to generate a clear answer.
+StudyMate AI is a document-based AI study assistant that lets students upload study material in PDF format and ask questions about its content.
+
+The application extracts and chunks the PDF text, generates embeddings using Sentence Transformers, retrieves the most relevant information for each question, and uses Google Gemini to generate a grounded answer.
+
+The project was built to understand and implement the core workflow of a RAG-based question-answering system, from document processing and retrieval to conversation handling, error handling, caching, and deployment.
 
 ## 🚀 Live Demo
 
@@ -11,37 +15,39 @@ https://studymate-ai-q49m45cvhv6o66aldvylh3.streamlit.app/
 ## ✨ Features
 
 - 📄 Upload study material in PDF format
-- 🔍 Extract text from uploaded PDFs
-- 🧩 Divide large text into smaller chunks
-- 🧠 Generate embeddings using Sentence Transformers
-- 🎯 Retrieve the most relevant chunks for a question
-- 🤖 Generate answers using Google Gemini
-- 💬 Maintain conversation history
-- 🔄 Handle follow-up questions using previous conversation context
-- ⚡ Cache models, PDF processing, and embeddings for better performance
-- 🛡️ Handle missing API keys and unreadable PDFs
-- ☁️ Deployed online using Streamlit Community Cloud
+- 🔍 Extract text from uploaded PDF documents
+- 🧩 Split extracted text into smaller overlapping chunks
+- 🧠 Generate text embeddings using Sentence Transformers
+- 🎯 Retrieve the top relevant chunks for each question
+- 🤖 Generate grounded answers using Google Gemini
+- 💬 Maintain conversation history during the session
+- 🔄 Support follow-up questions using previous conversation context
+- ⚡ Cache the embedding model, PDF processing, and embeddings for better performance
+- 🛡️ Handle missing API keys and unreadable PDFs gracefully
+- ☁️ Deploy and run the application online using Streamlit Community Cloud
 
 ## 🔄 How It Works
 
+StudyMate AI processes the uploaded study material through the following workflow:
+
 ```text
-PDF Upload
-    ↓
-Text Extraction
-    ↓
-Text Chunking
-    ↓
-Embeddings Generation
-    ↓
-Question
-    ↓
-Relevant Chunks Retrieval
-    ↓
-Context + Question
-    ↓
-Google Gemini
-    ↓
-AI Answer
+1. PDF Upload
+      ↓
+2. Text Extraction using PyPDF
+      ↓
+3. Text Chunking
+      ↓
+4. Embeddings Generation
+      ↓
+5. User Question
+      ↓
+6. Relevant Chunk Retrieval
+      ↓
+7. Context + Question + Conversation History
+      ↓
+8. Google Gemini
+      ↓
+9. Grounded AI Answer
 
 🛠️ Technologies Used
 Python
